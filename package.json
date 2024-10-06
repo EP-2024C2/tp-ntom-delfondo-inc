@@ -12,7 +12,7 @@
     "association",
     "MTON"
   ],
-  "author": "Grupo xxxxxxxxx",
+  "author": "Grupo delfondo-inc",
   "license": "MIT",
   "devDependencies": {
     "nodemon": "^3.1.0"
