@@ -1,7 +1,6 @@
 const genericMiddleware = require('./generic.middleware')
 const productosMiddleware = require('./productos.middleware')
-const vendedoresMiddleware = require('./vendedores.middleware')
-const proveedoresMiddleware = require('./proveedores.middleware')
-const ventasMiddleware = require('./ventas.middleware')
+const componentesMiddleware = require('./componentes.middleware')
+const fabricantesMiddleware = require('./fabricantes.middleware')
 
-module.exports = {genericMiddleware,productosMiddleware,vendedoresMiddleware,proveedoresMiddleware,ventasMiddleware}
+module.exports = {genericMiddleware,productosMiddleware,componentesMiddleware,fabricantesMiddleware}

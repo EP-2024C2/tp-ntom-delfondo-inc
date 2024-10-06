@@ -1,6 +1,5 @@
 const productosController = require('./productos.controller')
-const vendedoresController = require('./vendedores.controller')
-const proveedoresController = require('./proveedores.controller')
-const ventasController = require('./ventas.controller')
+const componentesController = require('./componentes.controller')
+const fabricantesController = require('./fabricantes.controller')
 
-module.exports = {productosController,vendedoresController,proveedoresController,ventasController}
+module.exports = {productosController,componentesController,fabricantesController}

@@ -1,6 +1,5 @@
 const productosRoute = require('./productos.route')
-const vendedoresRoute = require('./vendedores.route')
-const proveedoresRoute = require('./proveedores.route')
-const ventasRoute = require('./ventas.route')
+const componentesRoute = require('./componentes.route')
+const fabricantesRoute = require('./fabricantes.route')
 
-module.exports = {productosRoute,vendedoresRoute,proveedoresRoute,ventasRoute}
+module.exports = {productosRoute,componentesRoute,fabricantesRoute}
