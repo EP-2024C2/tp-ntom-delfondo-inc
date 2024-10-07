@@ -10,5 +10,6 @@ route.get('/productos/:id',productosMiddleware.validateIdProduct,productosContro
 
 route.post('/productos',productosController.createProduct) // Pendiente Status Code 400: schemaValidator(productosSchema),
 route.put('/productos/:id',productosMiddleware.validateIdProduct,productosController.updateProducto)
+route.delete('/productos/:id',productosMiddleware.validateIdProduct,productosController.deleteById) // Pendiente Status Code 500
 
 module.exports = route

@@ -45,4 +45,13 @@ const updateProducto = async (req,res)=>{
 }
 controller.updateProducto = updateProducto
 
+const deleteById = async (req,res)=>{
+    const idBorrado = req.params.id
+    const row = await Producto.destroy({
+        where: {id:idBorrado}
+    })
+    res.status(200).json({mensaje: `fila borrada ${row}`})
+}
+controller.deleteById = deleteById
+
 module.exports = controller
