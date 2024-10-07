@@ -1,0 +1,12 @@
+[
+    {
+        "id": 3,
+        "nombre": "Pantalla OLED 6.5 pulgadas",
+        "descripcion": "Pantalla de alta definición"
+    },
+    {
+        "id": 4,
+        "nombre": "Batería 4000mAh",
+        "descripcion": "Batería de larga duración"
+    }
+]
