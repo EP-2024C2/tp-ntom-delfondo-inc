@@ -1,33 +1,48 @@
-const productos = require('../../data/productos.json')
+const { Model } = require('sequelize')
+const { Producto } = require('../models/models')
 const controller = {}
-controller.productos = productos
+controller.productos = Producto
 
-const getAllProducts = (req, res)=>{
+const getAllProducts = async (req, res)=>{
+    const productos = await Producto.findAll({})
     res.status(200).json(productos)
 }
 controller.getAllProducts = getAllProducts
 
-const getProductById = (req, res)=>{
+const getProductById = async (req, res)=>{
     const id = req.params.id
-    const producto = productos.find( producto => producto.id==id)
+    const producto = await Producto.findOne({ 
+        where: {id},
+    })
     res.status(200).json(producto)
 }
 controller.getProductById = getProductById
 
-const createProduct = (req, res)=>{
+const createProduct = async (req, res)=>{
     const { nombre,descripcion,precio,pathImg,fabricantes } = req.body
-    const ids = productos.map(p => p.id)
-    const producto = {
-        id: ids.length == 0 ? 1 : Math.max(...ids) + 1,
+    const producto = await Producto.create({
         nombre,
         descripcion,
         precio,
         pathImg,
         fabricantes
-    }
-    productos.push(producto)
+    })
     res.status(201).json(producto)
 }
 controller.createProduct = createProduct
+
+const updateProducto = async (req,res)=>{
+    const id = req.params.id
+    const { nombre,descripcion,precio,pathImg,fabricantes } = req.body
+    const producto = await Producto.findByPk(id)
+    producto.nombre = nombre
+    producto.descripcion = descripcion
+    producto.precio = precio
+    producto.pathImg = pathImg
+    producto.fabricantes = fabricantes
+    await Producto.save()
+    res.status(200).json(producto)
+}
+controller.updateProducto = updateProducto
 
 module.exports = controller
