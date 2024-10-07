@@ -11,6 +11,8 @@ app.use(express.json())
 
 app.use(genericMiddleware.requestTime)
 app.use(routes.productosRoute)
+app.use(routes.fabricantesRoute)
+app.use(routes.componentesRoute)
 app.listen(PORT, async ()=>{
     console.log(`Aplicacion iniciada en el puerto ${PORT}`)
     //Esto lo hacemos solo en desarrollo para sincronizar el modelo con la db
