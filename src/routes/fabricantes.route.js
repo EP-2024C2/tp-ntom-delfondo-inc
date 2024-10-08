@@ -12,4 +12,7 @@ route.post('/fabricantes',fabricantesController.createMaker) // Pendiente Status
 route.put('/fabricantes/:id',fabricantesMiddleware.validateIdMaker,fabricantesController.updateMaker)
 route.delete('/fabricantes/:id',fabricantesMiddleware.validateIdMaker,fabricantesController.deleteById) // Pendiente Status Code 500
 
+// Tabla Intermedia
+route.get('/fabricantes/:id/productos',fabricantesController.getAllProductsMade) // Implementar controller.funcion y 404
+
 module.exports = route

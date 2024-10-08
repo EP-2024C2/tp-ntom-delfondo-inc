@@ -1,10 +1,26 @@
 [
     {
-    "id": 1,
-    "nombre": "TechCorp",
-    "direccion": "1234 Elm St, Ciudad",
-    "contacto": "+123456789",
-    "pathImgPerfil": "/images/fabricantes/techcorp.jpg",
-    "productos": []
+        "id": 1,
+        "nombre": "TechCorp",
+        "direccion": "1234 Elm St, Ciudad",
+        "contacto": "+123456789",
+        "pathImgPerfil": "/images/fabricantes/techcorp.jpg",
+        "productos": []
+    },
+    {
+        "id": 2,
+        "nombre": "Compumundo Hipermegared",
+        "direccion": "1234 Evergreen, Springfield",
+        "contacto": "+987654329",
+        "pathImgPerfil": "/images/fabricantes/ch.jpg",
+        "productos": []
+    },
+    {
+        "id": 3,
+        "nombre": "Meta",
+        "direccion": "1234 Hackerway, California",
+        "contacto": "+1434387898",
+        "pathImgPerfil": "/images/fabricantes/mega.jpg",
+        "productos": []
     }
 ]

@@ -12,4 +12,7 @@ route.post('/componentes',componentesController.createPart) // Pendiente Status 
 route.put('/componentes/:id',componentesMiddleware.validateIdPart,componentesController.updatePart)
 route.delete('/componentes/:id',componentesMiddleware.validateIdPart,componentesController.deleteById) // Pendiente Status Code 500
 
+// Tabla Intermedia
+route.get('/componentes/:id/productos',componentesController.getAllProductsMadeWithPart) // Implementar controller.funcion y 404
+
 module.exports = route

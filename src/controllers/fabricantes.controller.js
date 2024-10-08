@@ -54,4 +54,10 @@ const deleteById = async (req,res)=>{
 }
 controller.deleteById = deleteById
 
+const getAllProductsMade = async (req,res)=>{
+    const listado = [{}]
+    res.status(200).json(listado)
+}
+controller.getAllProductsMade = getAllProductsMade
+
 module.exports = controller

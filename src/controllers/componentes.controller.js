@@ -48,4 +48,10 @@ const deleteById = async (req,res)=>{
 }
 controller.deleteById = deleteById
 
+const getAllProductsMadeWithPart = async (req,res)=>{
+    const listado = [{}]
+    res.status(200).json(listado)
+}
+controller.getAllProductsMadeWithPart = getAllProductsMadeWithPart
+
 module.exports = controller

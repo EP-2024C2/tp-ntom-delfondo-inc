@@ -54,4 +54,28 @@ const deleteById = async (req,res)=>{
 }
 controller.deleteById = deleteById
 
+const productMaker = async (req, res)=>{
+    const listado = [{}]
+    res.status(201).json(listado)
+}
+controller.productMaker = productMaker
+
+const getAllProductMaker = async (req, res)=>{
+    const listado = [{}]
+    res.status(200).json(listado)
+}
+controller.getAllProductMaker = getAllProductMaker
+
+const productParts = async (req, res)=>{
+    const listado = [{}]
+    res.status(201).json(listado)
+}
+controller.productParts = productParts
+
+const getAllProductsParts = async (req, res)=>{
+    const listado = [{}]
+    res.status(200).json(listado)
+}
+controller.getAllProductsParts = getAllProductsParts
+
 module.exports = controller
