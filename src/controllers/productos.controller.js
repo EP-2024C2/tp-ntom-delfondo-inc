@@ -40,7 +40,7 @@ const updateProducto = async (req,res)=>{
     producto.precio = precio
     producto.pathImg = pathImg
     producto.fabricantes = fabricantes
-    await Producto.save()
+    await producto.save()
     res.status(200).json(producto)
 }
 controller.updateProducto = updateProducto

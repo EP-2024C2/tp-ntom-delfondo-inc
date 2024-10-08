@@ -34,7 +34,7 @@ const updatePart = async (req,res)=>{
     const componente = await Componente.findByPk(id)
     componente.nombre = nombre
     componente.descripcion = descripcion
-    await Componente.save()
+    await componente.save()
     res.status(200).json(componente)
 }
 controller.updatePart = updatePart

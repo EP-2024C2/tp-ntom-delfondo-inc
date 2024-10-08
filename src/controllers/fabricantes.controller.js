@@ -40,7 +40,7 @@ const updateMaker = async (req,res)=>{
     fabricante.contacto = contacto
     fabricante.pathImgPerfil = pathImgPerfil
     fabricante.productos = productos
-    await Fabricante.save()
+    await fabricante.save()
     res.status(200).json(fabricante)
 }
 controller.updateMaker = updateMaker
