@@ -17,5 +17,5 @@ app.listen(PORT, async ()=>{
     console.log(`Aplicacion iniciada en el puerto ${PORT}`)
     //Esto lo hacemos solo en desarrollo para sincronizar el modelo con la db
     //Descomentar solo cuando hay cambios en el modelo, se dropean tablas
-    db.sequelize.sync({force:true})
+    //db.sequelize.sync({force:true})
 })
