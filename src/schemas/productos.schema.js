@@ -2,10 +2,6 @@ const Joi = require('joi');
 // const fabricanteSchema = require('./fabricante.schema'); 
 
 const productoSchema = Joi.object().keys({
-    id: Joi.number().integer().required().messages({
-        "any.required": "El ID del producto es requerido",
-        "number.base": "El ID del producto debe ser un número"
-    }),
     nombre: Joi.string().required().min(3).max(100).messages({
         "any.required": "El nombre del producto es requerido",
         "string.min": "El nombre del producto debe tener como mínimo {#limit} caracteres",
