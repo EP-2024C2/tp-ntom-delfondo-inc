@@ -1,5 +1,5 @@
 const { Model } = require('sequelize')
-const { Fabricante } = require('../models/models')
+const { Fabricante } = require('../models')
 const controller = {}
 controller.fabricantes = Fabricante
 

@@ -1,5 +1,5 @@
 const { Model } = require('sequelize')
-const { Componente } = require('../models/models')
+const { Componente } = require('../models')
 const controller = {}
 controller.componentes = Componente
 

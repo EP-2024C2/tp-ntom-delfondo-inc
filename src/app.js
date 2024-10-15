@@ -3,7 +3,7 @@ console.log(`Trabajo Practico de Estrategias de Persistencia.....`)
 const express = require('express')
 const routes = require('./routes')
 const {genericMiddleware} = require('./middlewares')
-const db = require('./models/models')
+const db = require('./models')
 const app = express()
 const PORT = 3000
 
