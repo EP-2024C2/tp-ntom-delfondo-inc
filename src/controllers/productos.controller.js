@@ -1,5 +1,5 @@
 const { Model } = require('sequelize')
-const { Producto } = require('../models/models')
+const { Producto, Fabricante, Componente, Producto_Fabricante, Producto_Componente } = require('../models/models')
 const controller = {}
 controller.productos = Producto
 
@@ -55,8 +55,18 @@ const deleteById = async (req,res)=>{
 controller.deleteById = deleteById
 
 const productMaker = async (req, res)=>{
-    const listado = [{}]
-    res.status(201).json(listado)
+    const idProd = req.params.id
+    const { id } = req.body
+    const tabla = await Producto_Fabricante.create()
+    const producto = await Producto.findOne({
+        where: {id: idProd}
+    })
+    const fabricante = await Fabricante.findOne({
+        where: {id}
+    })
+    await tabla.setProducto(producto)
+    await tabla.setFabricante(fabricante)
+    res.status(201).json(tabla)
 }
 controller.productMaker = productMaker
 
@@ -67,8 +77,18 @@ const getAllProductMaker = async (req, res)=>{
 controller.getAllProductMaker = getAllProductMaker
 
 const productParts = async (req, res)=>{
-    const listado = [{}]
-    res.status(201).json(listado)
+    const idProd = req.params.id
+    const { id } = req.body
+    const tabla = await Producto_Componente.create()
+    const producto = await Producto.findOne({
+        where: {id: idProd}
+    })
+    const componente = await Componente.findOne({
+        where: {id}
+    })
+    await tabla.setProducto(producto)
+    await tabla.setComponente(componente)
+    res.status(201).json(tabla)
 }
 controller.productParts = productParts
 

@@ -13,9 +13,9 @@ route.put('/productos/:id', schemaValidator(productosSchema), productosMiddlewar
 route.delete('/productos/:id',productosMiddleware.validateIdProduct,productosController.deleteById) // Pendiente Status Code 500
 
 // Tablas Intermedias
-route.post('/productos/:id/fabricantes',productosController.productMaker) // Implementar controller.funcion y 404,400
+route.post('/productos/:id/fabricantes',productosController.productMaker) //  falta 404,400
 route.get('/productos/:id/fabricantes',productosController.getAllProductMaker) //Implementar controller.funcion y 404
-route.post('/productos/:id/componentes',productosController.productParts) // Implementar controller.funcion y 404, 400
+route.post('/productos/:id/componentes',productosController.productParts) //  falta 404, 400
 route.get('//productos/:id/componentes',productosController.getAllProductsParts) // Implementar controller.funcion y 404
 
 module.exports = route
