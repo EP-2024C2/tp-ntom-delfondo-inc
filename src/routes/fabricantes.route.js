@@ -13,6 +13,6 @@ route.put('/fabricantes/:id', schemaValidator(fabricantesSchema),fabricantesMidd
 route.delete('/fabricantes/:id',fabricantesMiddleware.validateIdMaker,fabricantesController.deleteById) // Pendiente Status Code 500
 
 // Tabla Intermedia
-route.get('/fabricantes/:id/productos',fabricantesController.getAllProductsMade) // Implementar controller.funcion y 404
+route.get('/fabricantes/:id/productos',fabricantesMiddleware.validateIdMaker,fabricantesController.getAllProductsMade) // Implementar controller.funcion
 
 module.exports = route

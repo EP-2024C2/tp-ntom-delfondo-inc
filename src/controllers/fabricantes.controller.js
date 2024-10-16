@@ -1,5 +1,5 @@
 const { Model } = require('sequelize')
-const { Fabricante } = require('../models')
+const { Fabricante, Producto, Componente } = require('../models')
 const controller = {}
 controller.fabricantes = Fabricante
 
@@ -55,8 +55,19 @@ const deleteById = async (req,res)=>{
 controller.deleteById = deleteById
 
 const getAllProductsMade = async (req,res)=>{
-    const listado = [{}]
-    res.status(200).json(listado)
+    const id = req.params.id
+    const fabricante = await Fabricante.findOne( {
+        where: {id},
+        include: {
+            model: Producto,
+            through: {attributes: []},
+            include: {
+                model: Componente,
+                through: {attributes: []}
+            }
+        }
+    })
+    res.status(200).json(fabricante)
 }
 controller.getAllProductsMade = getAllProductsMade
 
