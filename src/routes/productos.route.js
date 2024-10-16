@@ -16,6 +16,6 @@ route.delete('/productos/:id',productosMiddleware.validateIdProduct,productosCon
 route.post('/productos/:id/fabricantes',productosController.productMaker) //  falta 404,400
 route.get('/productos/:id/fabricantes',productosController.getAllProductMaker) //Implementar controller.funcion y 404
 route.post('/productos/:id/componentes',productosController.productParts) //  falta 404, 400
-route.get('//productos/:id/componentes',productosController.getAllProductsParts) // Implementar controller.funcion y 404
+route.get('/productos/:id/componentes',productosController.getAllProductsParts) // Implementar controller.funcion y 404
 
 module.exports = route
