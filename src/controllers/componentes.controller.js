@@ -41,10 +41,13 @@ controller.updatePart = updatePart
 
 const deleteById = async (req,res)=>{
     const idBorrado = req.params.id
-    const row = await Componente.destroy({
+    try{const row = await Componente.destroy({
         where: {id:idBorrado}
     })
     res.status(200).json({mensaje: `fila borrada ${row}`})
+    }catch{
+        res.status(500).json({message:'Error de borrado!'})
+        }
 }
 controller.deleteById = deleteById
 

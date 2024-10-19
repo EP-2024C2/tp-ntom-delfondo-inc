@@ -47,12 +47,17 @@ controller.updateProducto = updateProducto
 
 const deleteById = async (req,res)=>{
     const idBorrado = req.params.id
-    const row = await Producto.destroy({
+    try{const row = await Producto.destroy({
         where: {id:idBorrado}
     })
     res.status(200).json({mensaje: `fila borrada ${row}`})
+} catch{
+    res.status(500).json({message:'Error de borrado!'})
+    }
 }
 controller.deleteById = deleteById
+
+
 
 const productMaker = async (req, res)=>{
     const idProd = req.params.id // id producto

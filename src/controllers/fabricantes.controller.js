@@ -47,10 +47,13 @@ controller.updateMaker = updateMaker
 
 const deleteById = async (req,res)=>{
     const idBorrado = req.params.id
-    const row = await Fabricante.destroy({
+    try{const row = await Fabricante.destroy({
         where: {id:idBorrado}
     })
     res.status(200).json({mensaje: `fila borrada ${row}`})
+    }catch{
+        res.status(500).json({message:'Error de borrado!'})
+        }
 }
 controller.deleteById = deleteById
 
