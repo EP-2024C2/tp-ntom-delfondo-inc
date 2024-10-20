@@ -19,8 +19,8 @@ El presente sistema está diseñado para gestionar productos y sus relaciones en
 
 2. **Configuración de la Base de Datos**:
    - Este sistema utiliza **MySQL**.
-   - Si se deseara utilizar otra base de datos, debería realizarse una modificación en el archivo `config.json`
-   - Ejemplo: para utilizar **PostgreSQL**, dentro del archivo `config.json` modificamos: `"dialect": "postgres"`
+   - Si se deseara utilizar otra base de datos, debería realizarse una modificación en el archivo `src/config/config.json`
+   - Ejemplo: para utilizar **PostgreSQL**, dentro de `config.json` modificamos: `"dialect": "postgres"`
 
 3. **Uso de la API**:
    - Solicitudes HTTP a las rutas definidas para productos, fabricantes y componentes:
