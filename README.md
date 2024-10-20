@@ -8,8 +8,6 @@ El presente sistema está diseñado para gestionar productos y sus relaciones en
 4. **SQLite** (para desarrollo) y **MySQL** (para pruebas y producción): Sistemas de gestión de bases de datos utilizados para almacenar la información.
 5. **Joi**: Librería utilizada para validación de datos.
 
-//6. Postgre ?
-
 ## Información para Usuarios 
 
 1. **Instalación y Configuración** (Se requiere tener Node.js instalado en el servidor):
@@ -20,7 +18,9 @@ El presente sistema está diseñado para gestionar productos y sus relaciones en
    - **Iniciar aplicación (desarrolladores)**: `npm run dev`
 
 2. **Configuración de la Base de Datos**:
-   - Para cambiar la base de datos: 
+   - Este sistema utiliza **MySQL**.
+   - Si se deseara utilizar otra base de datos, debería realizarse una modificación en el archivo `config.json`
+   - Ejemplo: para utilizar **PostgreSQL**, dentro del archivo `config.json` modificamos: `"dialect": "postgres"`
 
 3. **Uso de la API**:
    - Solicitudes HTTP a las rutas definidas para productos, fabricantes y componentes:
