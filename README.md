@@ -21,11 +21,11 @@ El presente sistema está diseñado para gestionar productos y sus relaciones en
    - Si se deseara utilizar otra base de datos, debería realizarse una modificación en el archivo `src/config/config.json`
      
       **Uso de PostgreSQL con Docker (Desarrollo)**
-   2.1. Ubicarse en el arhivo `docker-compose.yml` en la raíz del  proyecto. 
-   2.2. Abrir una terminal y ejecutar Docker Compose: `docker-compose up -d` 
-   Aclaración: `up`: Levanta los servicios definidos en el archivo y
-   `-d`: Ejecuta los contenedores en segundo plano (detached).
-   2.3. Iniciar servidor en modo desarrollo. 
+   1. Ubicarse en el archivo `docker-compose.yml` en la raíz del  proyecto. 
+   2. Abrir una terminal y ejecutar Docker Compose: `docker-compose up -d` 
+   (aclaración: `up`: Levanta los servicios definidos en el archivo y
+   `-d`: Ejecuta los contenedores en segundo plano ("detached")).
+   3. Iniciar servidor en modo desarrollo. 
 
 3. **Uso de la API**:
    - Solicitudes HTTP a las rutas definidas para productos, fabricantes y componentes:
