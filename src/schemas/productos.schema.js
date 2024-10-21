@@ -1,5 +1,4 @@
-const Joi = require('joi');
-// const fabricanteSchema = require('./fabricante.schema'); 
+const Joi = require('joi'); 
 
 const productoSchema = Joi.object().keys({
     nombre: Joi.string().required().min(3).max(100).messages({
@@ -18,15 +17,15 @@ const productoSchema = Joi.object().keys({
         "any.required": "El precio del producto es requerido",
         "number.base": "El precio debe ser un número",
         "number.positive": "El precio debe ser un número positivo",
-        "number.precision": "El precio puede tener hasta 2 decimales"
+        "number.precision": "El precio puede tener hasta 2 decimales",
+        "number.empty": "El precio no puede estar vacío"
     }),
     pathImg: Joi.string().required().messages({
-        "any.required": "El path de la imagen es requerido",
+        "any.required": "El path de la imagen de perfil es requerido",
+        "string.min":"El path de la imagen de perfil debe tener como minimo {#limit} caracteres",
+        "string.max":"El path de la imagen de perfil debe tener como maxino {#limit} caracteres",
+        "string.empty":"El path de la imagen de perfil no puede ser vacio"
     }),
-    //fabricantes: Joi.array().items(fabricanteSchema).min(1).required().messages({
-    //    "any.required": "Debe haber al menos un fabricante",
-    //    "array.min": "Debe haber al menos {#limit} fabricante(s)"
-    // })
 }).unknown(false).messages({
     'object.unknown': 'El atributo {#label} no está permitido.'
 });

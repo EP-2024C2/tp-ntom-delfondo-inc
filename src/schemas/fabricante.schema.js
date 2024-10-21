@@ -1,5 +1,4 @@
 const Joi = require('joi');
-// const productosSchema = require('./productos.schema'); 
 
 const fabricanteSchema = Joi.object().keys({
     nombre: Joi.string().required().min(3).max(100).messages({
@@ -8,21 +7,26 @@ const fabricanteSchema = Joi.object().keys({
         "string.max": "El nombre del fabricante debe tener como máximo {#limit} caracteres",
         "string.empty": "El nombre del fabricante no puede estar vacío"
     }),
-    direccion: Joi.string().required().messages({
+    direccion: Joi.string().required().min(3).max(255).messages({
         "any.required": "La dirección del fabricante es requerida",
-        "string.empty": "La dirección no puede estar vacía"
+        "string.min": "La dirección debe tener como mínimo {#limit} caracteres",
+        "string.max": "La dirección debe tener como máximo {#limit} caracteres",
+        "string.empty": "La dirección no puede estar vacía",
     }),
-    contacto: Joi.string().required().messages({
+    contacto: Joi.string().required().min(8).max(13).messages({
         "any.required": "El contacto del fabricante es requerido",
-        "string.empty": "El contacto no puede estar vacío",
+        "string.min": "El número de contacto debe tener como minimo {#limit} caracteres",
+        "string.max": "El número de contacto debe tener como maxino {#limit} caracteres",
+        "string.empty": "El contacto no puede estar vacío"
     }),
     pathImgPerfil: Joi.string().required().messages({
         "any.required": "El path de la imagen de perfil es requerido",
-    })
-    //productos: Joi.array().items(productosSchema).min(1).required().messages({
-    //    "any.required": "Debe haber al menos un producto",
-    //    "array.min": "Debe haber al menos {#limit} productos(s)"
-    // })
+        "string.min":"El path de la imagen de perfil debe tener como minimo {#limit} caracteres",
+        "string.max":"El path de la imagen de perfil debe tener como maxino {#limit} caracteres",
+        "string.empty":"El path de la imagen de perfil no puede ser vacio"
+    }),
+}).unknown(false).messages({
+    'object.unknown': 'El atributo {#label} no está permitido.'
 });
 
 module.exports = fabricanteSchema;
