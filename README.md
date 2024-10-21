@@ -5,7 +5,7 @@ El presente sistema está diseñado para gestionar productos y sus relaciones en
 1. **Node.js**: Entorno de ejecución JavaScript en el servidor.
 2. **Express**: Framework web para Node.js.
 3. **Sequelize**: ORM (Object-Relational Mapping) para interactuar con bases de datos SQL.
-4. **SQLite** (para desarrollo) y **MySQL** (para pruebas y producción): Sistemas de gestión de bases de datos utilizados para almacenar la información.
+4. **SQLite** (para desarrollo)  y **PostgreSQL** (para pruebas y producción): Sistemas de gestión de bases de datos utilizados para almacenar la información.
 5. **Joi**: Librería utilizada para validación de datos.
 
 ## Información para Usuarios 
@@ -17,15 +17,13 @@ El presente sistema está diseñado para gestionar productos y sus relaciones en
    - **Iniciar aplicación (desarrolladores)**: `npm run dev`
 
 2. **Configuración de la Base de Datos**:
-   - Este sistema utiliza **MySQL**.
+   - Este sistema utiliza **PostgreSQL**.
    - Si se deseara utilizar otra base de datos, debería realizarse una modificación en el archivo `src/config/config.json`
      
-      **Uso de PostgreSQL con Docker (Desarrollo)**
-   1. Ubicarse en el archivo `docker-compose.yml` en la raíz del  proyecto. 
-   2. Abrir una terminal y ejecutar Docker Compose: `docker-compose up -d` 
-   (aclaración: `up`: Levanta los servicios definidos en el archivo y
-   `-d`: Ejecuta los contenedores en segundo plano ("detached")).
-   3. Iniciar servidor en modo desarrollo. 
+      **Uso de PostgreSQL con Docker (Produccion)**
+   1.  Descargar un docker con la imagen de Postgres, por ejemplo:
+`docker run --name postgres  -e POSTGRES_PASSWORD=1234 -p 5434:5432 -d postgres:16-alpine`
+ Es necesario tener una password, el usuario por defecto sera postgres y el puerto 5434.
 
 3. **Uso de la API**:
    - Solicitudes HTTP a las rutas definidas para productos, fabricantes y componentes:
