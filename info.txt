@@ -1,0 +1,11 @@
+como compilar el docker file
+
+docker build -t nombre:version .
+    tenemos como resultado una imagen
+
+docker run -p 4000:3001 -d nombre:version
+    para correr dicha imagen
+
+    tambien se puede correr desde el docker-compose.yml
+    es necesario configurar siempre el port por variable de entorno
+

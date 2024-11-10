@@ -1,0 +1,42 @@
+services:
+  mongodb:
+    image: mongo:latest
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin1234
+    ports:
+      
+"27017:27017"
+  volumes:
+./mongo_data:/data/db  # Volumen persistente fuera del contenedor
+
+  mongo-express:
+    image: mongo-express
+    ports:
+      
+8081:8081
+  environment:
+    ME_CONFIG_MONGODB_ADMINUSERNAME: web
+    ME_CONFIG_MONGODB_ADMINPASSWORD: web1234
+    ME_CONFIG_MONGODB_URL: mongodb://admin:admin1234@mongodb:27017/
+    ME_CONFIG_BASICAUTH: false
+  
+  miapp:
+    image: app-image:1.0.1
+    ports:
+      4200:3100
+    environment:
+      Port: 3100
+      MONGO_URL: 
+    depends_on:
+      - mongodb
+
+  miapp2:
+    image: app-image:1.0.1
+    ports:
+      4201:3100
+    environment:
+      Port: 3100
+      MONGO_URL: 
+    depends_on:
+      - mongodb

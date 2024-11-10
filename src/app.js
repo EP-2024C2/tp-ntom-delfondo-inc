@@ -5,7 +5,7 @@ const routes = require('./routes')
 const {genericMiddleware} = require('./middlewares')
 const db = require('./models')
 const app = express()
-const PORT = 3000
+const PORT = process.env.PORT ?? 5000
 
 app.use(express.json())
 

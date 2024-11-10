@@ -1,21 +1,20 @@
 const { Router } = require('express')
 const route = Router()
 const { productosController } = require('../controllers/index')
-const { productosMiddleware } = require('../middlewares/index')
-const schemaValidator = require('../middlewares/schemaValidator')
-const productosSchema= require('../schemas/productos.schema')
+const { genericMiddleware } = require('../middlewares/index')
+const { Producto } = require('../models')
 
 route.get('/productos',productosController.getAllProducts)
-route.get('/productos/:id',productosMiddleware.validateIdProduct,productosController.getProductById)
+route.get('/productos/:id',genericMiddleware.validateId(Producto),productosController.getProductById)
 
-route.post('/productos', schemaValidator(productosSchema), productosController.createProduct)
-route.put('/productos/:id', schemaValidator(productosSchema), productosMiddleware.validateIdProduct,productosController.updateProducto)
-route.delete('/productos/:id',productosMiddleware.validateIdProduct,productosController.deleteById) // Pendiente Status Code 500
+route.post('/productos', productosController.createProduct)
+route.put('/productos/:id', genericMiddleware.validateId(Producto),productosController.updateProducto)
+route.delete('/productos/:id',genericMiddleware.validateId(Producto),productosController.deleteById) 
 
 // Tablas Intermedias
-route.post('/productos/:id/fabricantes',productosMiddleware.validateIdProduct,productosController.productMaker) // falta 400?
-route.get('/productos/:id/fabricantes',productosMiddleware.validateIdProduct,productosController.getAllProductMaker)
-route.post('/productos/:id/componentes',productosMiddleware.validateIdProduct,productosController.productParts) // falta 400?
-route.get('/productos/:id/componentes',productosMiddleware.validateIdProduct,productosController.getAllProductsParts)
+route.post('/productos/:id/fabricantes',genericMiddleware.validateId(Producto),productosController.productMaker)
+route.get('/productos/:id/fabricantes',genericMiddleware.validateId(Producto),productosController.getAllProductMaker)
+route.post('/productos/:id/componentes',genericMiddleware.validateId(Producto),productosController.productParts)
+route.get('/productos/:id/componentes',genericMiddleware.validateId(Producto),productosController.getAllProductsParts)
 
 module.exports = route

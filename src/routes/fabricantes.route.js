@@ -1,18 +1,17 @@
 const { Router } = require('express')
 const route = Router()
 const { fabricantesController } = require('../controllers/index')
-const { fabricantesMiddleware } = require('../middlewares/index')
-const schemaValidator = require('../middlewares/schemaValidator')
-const fabricantesSchema= require('../schemas/fabricante.schema')
+const { genericMiddleware } = require('../middlewares/index')
+const { Fabricante } = require('../models')
 
 route.get('/fabricantes',fabricantesController.getAllMakers)
-route.get('/fabricantes/:id',fabricantesMiddleware.validateIdMaker,fabricantesController.getMakerById)
+route.get('/fabricantes/:id',genericMiddleware.validateId(Fabricante),fabricantesController.getMakerById)
 
-route.post('/fabricantes', schemaValidator(fabricantesSchema),fabricantesController.createMaker)
-route.put('/fabricantes/:id', schemaValidator(fabricantesSchema),fabricantesMiddleware.validateIdMaker,fabricantesController.updateMaker)
-route.delete('/fabricantes/:id',fabricantesMiddleware.validateIdMaker,fabricantesController.deleteById) // Pendiente Status Code 500
+route.post('/fabricantes',fabricantesController.createMaker)
+route.put('/fabricantes/:id',genericMiddleware.validateId(Fabricante),fabricantesController.updateMaker)
+route.delete('/fabricantes/:id',genericMiddleware.validateId(Fabricante),fabricantesController.deleteById)
 
 // Tabla Intermedia
-route.get('/fabricantes/:id/productos',fabricantesMiddleware.validateIdMaker,fabricantesController.getAllProductsMade) // Implementar controller.funcion
+route.get('/fabricantes/:id/productos',genericMiddleware.validateId(Fabricante),fabricantesController.getAllProductsMade)
 
 module.exports = route

@@ -1,18 +1,17 @@
 const { Router } = require('express')
 const route = Router()
 const { componentesController } = require('../controllers/index')
-const { componentesMiddleware } = require('../middlewares/index')
-const schemaValidator = require('../middlewares/schemaValidator')
-const componentesSchema= require('../schemas/componentes.schema')
+const { genericMiddleware } = require('../middlewares/index')
+const { Componente } = require('../models')
 
 route.get('/componentes',componentesController.getAllParts)
-route.get('/componentes/:id',componentesMiddleware.validateIdPart,componentesController.getPartById)
+route.get('/componentes/:id',genericMiddleware.validateId(Componente),componentesController.getPartById)
 
-route.post('/componentes', schemaValidator(componentesSchema), componentesController.createPart)
-route.put('/componentes/:id', schemaValidator(componentesSchema), componentesMiddleware.validateIdPart,componentesController.updatePart)
-route.delete('/componentes/:id',componentesMiddleware.validateIdPart,componentesController.deleteById) // Pendiente Status Code 500
+route.post('/componentes', componentesController.createPart)
+route.put('/componentes/:id', genericMiddleware.validateId(Componente),componentesController.updatePart)
+route.delete('/componentes/:id',genericMiddleware.validateId(Componente),componentesController.deleteById)
 
 // Tabla Intermedia
-route.get('/componentes/:id/productos',componentesMiddleware.validateIdPart,componentesController.getAllProductsMadeWithPart) // Implementar controller.funcion
+route.get('/componentes/:id/productos',genericMiddleware.validateId(Componente),componentesController.getAllProductsMadeWithPart)
 
 module.exports = route
